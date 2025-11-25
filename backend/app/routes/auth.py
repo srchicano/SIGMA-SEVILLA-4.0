@@ -6,6 +6,7 @@ from ..security import create_access_token, create_refresh_token
 from fastapi import Cookie
 from ..security import verify_token
 from ..deps import get_current_user
+from typing import Optional
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
