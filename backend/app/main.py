@@ -14,6 +14,11 @@ from .routes.requests import router as requests_router
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173",
+    "https://sigma-sevilla.netlify.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
