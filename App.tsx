@@ -137,6 +137,21 @@ function App() {
 
   // Actions
     const handleLogin = async (matricula: string, password: string) => {
+
+        // 1️⃣ ADMIN LOCAL HARD-CODED
+        if (matricula === "srchicano" && password === "admin") {
+            setUser({
+                matricula,
+                role: UserRole.ADMIN,
+                name: "Admin",
+                surname1: "System",
+                surname2: ""
+            });
+            setView("SECTORS");
+            return;
+        }
+
+        // 2️⃣ Intento de login real con FastAPI
         try {
             const user = await loginApi(matricula, password);
             setUser(user);
